@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android SignApk)
+
+Name: tmp/convertfs.sh
+SHA1-Digest: 8zp5PkMhFLwXngrw8GzgvKgR2Jo=
+
+Name: tmp/fstabchange.sh
+SHA1-Digest: mtU7075+QJ65a1gwkGVtWCqnoZ0=
+
+Name: META-INF/com/google/android/updater-script
+SHA1-Digest: D1DVHkLigW2c6eSuL7PFNZAgC/A=
+
+Name: tmp/mkbootimg
+SHA1-Digest: OmA+01ktAmwWsnn/joGtpQhPoZY=
+
+Name: tmp/unpackbootimg
+SHA1-Digest: WHpf3s2ACcO3Ub8hJc2EB9CcbRc=
+
+Name: META-INF/com/google/android/update-binary
+SHA1-Digest: tGM1vV4fNIiyk4xMaVPVUNNmjuw=
+

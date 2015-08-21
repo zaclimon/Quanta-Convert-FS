@@ -1,0 +1,22 @@
+Signature-Version: 1.0
+Created-By: 1.0 (Android SignApk)
+SHA1-Digest-Manifest: L5w6Hqr5U7YtfTr24w9mGwYD8GQ=
+
+Name: tmp/convertfs.sh
+SHA1-Digest: 1lUCdmDaN0jgqOxn/nPFgLxNWZM=
+
+Name: tmp/fstabchange.sh
+SHA1-Digest: rMelhcy4BWy0hOgNlwHeBAOrxUM=
+
+Name: META-INF/com/google/android/updater-script
+SHA1-Digest: 7dBZHa/4l1BTka9ozRKN4A2i2eo=
+
+Name: tmp/mkbootimg
+SHA1-Digest: /rPdGxncPTj8HAjDMsYrmDysRLA=
+
+Name: tmp/unpackbootimg
+SHA1-Digest: iidlBelXK0T6f9bzDKGmtofj7Zs=
+
+Name: META-INF/com/google/android/update-binary
+SHA1-Digest: CCeK03El/mTt+pqw6TQ1o7tXF34=
+

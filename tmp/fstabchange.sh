@@ -5,7 +5,7 @@
 # Modifies an fstab according to a new filesystem conversion
 # Made by Isaac Pateau (zaclimon)
 #
-# Version 1.0
+# Version 1.1
 #
 
 # Define the attributes now
@@ -25,13 +25,10 @@ dd if=$BOOT_PARTITION of=boot.img
 
 # Define the kernel's attributes for the repacking.
 KERNEL_CMDLINE=`cat boot.img-cmdline | sed 's/.*/"&"/'`
-KERNEL_BASE=0x`cat boot.img-base`
-KERNEL_PAGESIZE=2048
-if [ $DEVICE = "mako" ] ; then
-KERNEL_RAMDISK_ADDRESS=0x81800000
-elif [ $DEVICE = "flo" ] ; then
-KERNEL_RAMDISK_ADDRESS=0x82200000
-fi
+KERNEL_BASE=`cat boot.img-base`
+KERNEL_PAGESIZE=`cat boot.img-pagesize`
+KERNEL_OFFSET=`cat boot.img-kerneloff`
+RAMDISK_OFFSET=`cat boot.img-ramdiskoff`
 
 # Continue with the unpacking...
 mkdir ramdisk
@@ -50,9 +47,8 @@ fi
 # Repack the kernel. Looks like we have to put the mkbootimg command in a separate script because it doesn't look like it is possible to parse the cmdline into the "raw command".
 find . | cpio --create --format='newc' | gzip > ../ramdisk.gz
 cd ..
-cp boot.img-zImage zImage
 echo "#!/sbin/sh" > /tmp/modifiedquanta.sh
-echo "./mkbootimg --kernel zImage --ramdisk ramdisk.gz --base $KERNEL_BASE --cmdline $KERNEL_CMDLINE --pagesize $KERNEL_PAGESIZE --ramdiskaddr $KERNEL_RAMDISK_ADDRESS --output quantaboot.img" >> /tmp/modifiedquanta.sh
+echo "./mkbootimg --kernel boot.img-zImage --ramdisk boot.img-ramdisk.gz --cmdline $KERNEL_CMDLINE --base $KERNEL_BASE --pagesize $KERNEL_PAGESIZE --kernel_offset $KERNEL_OFFSET --ramdisk_offset $RAMDISK_OFFSET -o quantaboot.img" >> modifiedquanta.sh
 . /tmp/modifiedquanta.sh
 
 # Flash the new kernel

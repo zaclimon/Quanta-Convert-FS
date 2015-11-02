@@ -5,7 +5,7 @@
 # Modifies an fstab according to a new filesystem conversion
 # Made by Isaac Pateau (zaclimon)
 #
-# Version 1.1
+# Version 1.2
 #
 
 # Define the attributes now
@@ -48,7 +48,7 @@ fi
 find . | cpio --create --format='newc' | gzip > ../ramdisk.gz
 cd ..
 echo "#!/sbin/sh" > /tmp/modifiedquanta.sh
-echo "./mkbootimg --kernel boot.img-zImage --ramdisk boot.img-ramdisk.gz --cmdline $KERNEL_CMDLINE --base $KERNEL_BASE --pagesize $KERNEL_PAGESIZE --kernel_offset $KERNEL_OFFSET --ramdisk_offset $RAMDISK_OFFSET -o quantaboot.img" >> modifiedquanta.sh
+echo "./mkbootimg --kernel boot.img-zImage --ramdisk ramdisk.gz --cmdline $KERNEL_CMDLINE --base $KERNEL_BASE --pagesize $KERNEL_PAGESIZE --kernel_offset $KERNEL_OFFSET --ramdisk_offset $RAMDISK_OFFSET -o quantaboot.img" >> modifiedquanta.sh
 . /tmp/modifiedquanta.sh
 
 # Flash the new kernel

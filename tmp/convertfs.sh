@@ -3,7 +3,7 @@
 #
 # Ext4/F2FS converter script for Quanta Kernel
 # Detects the current filesystem and convert /cache and /data to their filesystem counterpart
-# Made by Isaac Pateau (zaclimon)
+# Isaac Pateau (zaclimon)
 #
 # Version 1.0
 #

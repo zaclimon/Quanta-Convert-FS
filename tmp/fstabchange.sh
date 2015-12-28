@@ -3,14 +3,13 @@
 #
 # Fstab Ext4/F2FS modifier for Quanta Kernel
 # Modifies an fstab according to a new filesystem conversion
-# Made by Isaac Pateau (zaclimon)
+# Isaac Pateau (zaclimon)
 #
-# Version 1.2
+# Version 1.3
 #
 
 # Define the attributes now
-DEVICE=`find fstab.* | cut -d . -f2`
-FSTAB=`find fstab.*`
+FSTAB=`find fstab.* | head -n 1`
 FS_TYPE=`cat /tmp/newfstype`
 BOOT_PARTITION=`grep /boot $FSTAB | cut -d " " -f1`
 
